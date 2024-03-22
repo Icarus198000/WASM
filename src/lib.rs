@@ -11,15 +11,6 @@ struct Timer {
     label: &'static str,
 }
 
-// impl Timer {
-//     fn new(label: &'static str) -> Self {
-//         if WITH_TIMER {
-//             web_sys::console::time_with_label(label);
-//         }
-//         Self { label }
-//     }
-// }
-
 impl Drop for Timer {
     fn drop(&mut self) {
         if WITH_TIMER {

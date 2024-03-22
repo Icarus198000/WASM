@@ -1,5 +1,5 @@
 [package]
-name = "candle-wasm-example-whisper"
+name = "Wasm-example-whisper"
 version.workspace = true
 edition.workspace = true
 description.workspace = true
@@ -9,9 +9,7 @@ categories.workspace = true
 license.workspace = true
 
 [dependencies]
-candle = { workspace = true }
-candle-nn = { workspace = true }
-candle-transformers = { workspace = true }
+transformers = { workspace = true }
 num-traits = { workspace = true }
 tokenizers = { workspace = true, features = ["unstable_wasm"] }
 

@@ -1,4 +1,3 @@
-//load the candle Whisper decoder wasm module
 import init, { Decoder } from "./build/m.js";
 
 async function fetchArrayBuffer(url) {
