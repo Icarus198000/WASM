@@ -1,11 +1,9 @@
 ## Running Whisper Examples
 
-Here, we provide two examples of how to run Whisper using a Candle-compiled WASM binary and runtimes.
-
 ### Pure Rust UI
 
 To build and test the UI made in Rust you will need [Trunk](https://trunkrs.dev/#install)
-From the `candle-wasm-examples/whisper` directory run:
+From the `wasm` directory run:
 
 Download assets:
 
