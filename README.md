@@ -1,4 +1,4 @@
-## Running Whisper Examples
+## Running WASM Examples
 
 ### Pure Rust UI
 
