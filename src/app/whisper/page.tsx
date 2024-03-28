@@ -10,14 +10,14 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 export default function WhisperModelPage() {
 
-    const people = [
+    const option = [
         { name: 'tiny_multilingual (151 MB)' },
         { name: 'tiny_en (151 MB)' },
         { name: 'tiny_quantized_multilingual_q80 (41.5 MB)' },
         { name: 'tiny_en_quantized_q80 (41.8 MB)' },
         { name: 'distil_medium_en (789 MB)' },
     ]
-    const [selected, setSelected] = useState(people[0])
+    const [selected, setSelected] = useState(option[0])
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-10">
@@ -50,7 +50,7 @@ export default function WhisperModelPage() {
                                 leaveTo="opacity-0"
                             >
                                 <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-                                    {people.map((person, personIdx) => (
+                                    {option.map((person, personIdx) => (
                                         <Listbox.Option
                                             key={personIdx}
                                             className={({ active }) =>
