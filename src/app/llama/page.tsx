@@ -8,17 +8,20 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 
-export default function WhisperModelPage() {
+export default function LlamaModelPage() {
+
+//    const [promptValue, setPromptValue] = useState<string>('Once upon a time...');
 
     const option = [
-        { name: 'tiny_multilingual (151 MB)' },
-        { name: 'tiny_en (151 MB)' },
-        { name: 'tiny_quantized_multilingual_q80 (41.5 MB)' },
-        { name: 'tiny_en_quantized_q80 (41.8 MB)' },
-        { name: 'distil_medium_en (789 MB)' },
+        { name: 'stories 15M (60.8 MB)' },
+        { name: 'stories 42M (167 MB)' },
+        { name: 'stories 110M (438 MB)' },
     ]
     const [selected, setSelected] = useState(option[0])
-
+    // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { value } = event.target;
+    //         setPromptValue(value);
+    //   };
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-10">
             <Header />
@@ -28,8 +31,8 @@ export default function WhisperModelPage() {
                 </svg>
             </Link>
             <div className="flex flex-col">
-                <span className=' text-[30px] dark:text-gray-300 font-bold'>Whisper - Rust Wasm</span>
-                <span className=' text-[20px] mt-[20px] dark:text-gray-300'>Transcribe audio in the browser using rust/wasm with an audio file. This demo uses the OpenAI Whisper models and WASM runtime built with Candle</span>
+                <span className=' text-[30px] dark:text-gray-300 font-bold'>Llama2.c - Rust Wasm</span>
+                <span className=' text-[20px] mt-[20px] dark:text-gray-300'>Llama2.c is Andrey Karpathy's C implementation of the Llama 2 LLM model in C. This demo uses Candle to run Llama2.c in the browser using rust/wasm.</span>
                 <div className="mt-[50px] mb-[0px] flex gap-[50px] justify-start items-center z-10">
                     <span className="dark:text-gray-100">Models Options : </span>
                     <Listbox value={selected} onChange={setSelected}>
@@ -82,21 +85,20 @@ export default function WhisperModelPage() {
                     </Listbox>
                 </div>
                 <div className="mt-[50px]">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload file</label>
-                    <input className="block w-full p-[5px] text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" />
+                    <form className="max-w-[700px] mt-[50px] mx-auto">
+                        <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Run</label>
+                        <div className="relative">
+                            <input type="text" id="default-text" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none" placeholder="Add your prompt here" required />
+                            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Run</button>
+                        </div>
+                    </form>
                 </div>
-                <button className='relative z-[0] w-[300px] rounded-[0.5rem] mt-[50px] cursor-pointer group font-medium no-underline flex p-2 text-white items-center justify-center content-center focus:outline-none'>
-                    <span className='absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#256fc4] to-[#256fc4] dark:from-[rgb(30,30,30)] dark:to-[rgb(30,30,30)]'  ></span>
-                    <span className='h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#256fc4] to-[#256fc4] dark:from-[rgb(30,30,30)] dark:to-[rgb(30,30,30)]'></span>
-                    <span className='absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#256fc4] to-[#256fc4] dark:from-[rgb(30,30,30)] dark:to-[rgb(30,30,30)]'></span>
-                    <span className='absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#256fc4] from-[#256fc4] dark:from-[rgb(30,30,30)] dark:to-[rgb(30,30,30)]'></span>
-                    <span className='relative'>Transcribe Audio</span>
-                </button>
-                <div className="mt-[50px]">
-                    <label className="block mb-2 text-[15px] font-medium text-gray-900 dark:text-white">Transcription</label>
+             
+                <div className="mt-[50px] mb-[50px]">
+                    <label className="block mb-2 text-[15px] font-medium text-gray-900 dark:text-white">Generation:</label>
                     <div className="mt-[10px] w-full h-[230px] bg-slate-200 dark:bg-gray-500 flex items-center justify-center">
-                        No transcription results yet.
-                    </div> 
+                       No output yet
+                    </div>
                 </div>
             </div>
         </main>

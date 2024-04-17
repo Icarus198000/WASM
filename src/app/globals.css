@@ -31,3 +31,9 @@ body {
     text-wrap: balance;
   }
 }
+.ant-modal-content{
+  height: 700px !important;
+}
+.ant-modal-body{
+  height: 500px !important;
+}

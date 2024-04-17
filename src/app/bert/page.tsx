@@ -8,14 +8,14 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 
-export default function WhisperModelPage() {
+export default function BertModelPage() {
 
     const option = [
-        { name: 'tiny_multilingual (151 MB)' },
-        { name: 'tiny_en (151 MB)' },
-        { name: 'tiny_quantized_multilingual_q80 (41.5 MB)' },
-        { name: 'tiny_en_quantized_q80 (41.8 MB)' },
-        { name: 'distil_medium_en (789 MB)' },
+        { name: 'intfloat/e5-small-v2 (133 MB)' },
+        { name: 'intfloat/e5-base-v2 (438 MB)' },
+        { name: 'intfloat/multilingual-e5-small (471 MB)' },
+        { name: 'sentence-transformers/all-MiniLM-L6-v2 (90.9 MB)' },
+        { name: 'sentence-transformers/all-MiniLM-L12-v2 (133 MB)' },
     ]
     const [selected, setSelected] = useState(option[0])
 
@@ -28,8 +28,8 @@ export default function WhisperModelPage() {
                 </svg>
             </Link>
             <div className="flex flex-col">
-                <span className=' text-[30px] dark:text-gray-300 font-bold'>Whisper - Rust Wasm</span>
-                <span className=' text-[20px] mt-[20px] dark:text-gray-300'>Transcribe audio in the browser using rust/wasm with an audio file. This demo uses the OpenAI Whisper models and WASM runtime built with Candle</span>
+                <span className=' text-[30px] dark:text-gray-300 font-bold'>BERT - Rust Wasm</span>
+                <span className=' text-[20px] mt-[20px] dark:text-gray-300'>Running sentence embeddings and similarity search in the browser using the Bert Model written with Candle and compiled to Wasm. </span>
                 <div className="mt-[50px] mb-[0px] flex gap-[50px] justify-start items-center z-10">
                     <span className="dark:text-gray-100">Models Options : </span>
                     <Listbox value={selected} onChange={setSelected}>
@@ -82,21 +82,25 @@ export default function WhisperModelPage() {
                     </Listbox>
                 </div>
                 <div className="mt-[50px]">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload file</label>
-                    <input className="block w-full p-[5px] text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" />
+                    <label className="block mb-2 text-[20px] font-medium text-gray-900 dark:text-white">Examples : &nbsp;&nbsp;<span className=" cursor-pointer hover:text-blue-300"> pizza</span> &nbsp; <span className=" cursor-pointer hover:text-blue-300">paris</span> &nbsp; <span className=" cursor-pointer hover:text-blue-300">physics</span></label>
+                    <form className="max-w-[700px] mt-[50px] mx-auto">
+                        <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </div>
+                            <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none" placeholder="Search query here" required />
+                            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                        </div>
+                    </form>
                 </div>
-                <button className='relative z-[0] w-[300px] rounded-[0.5rem] mt-[50px] cursor-pointer group font-medium no-underline flex p-2 text-white items-center justify-center content-center focus:outline-none'>
-                    <span className='absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#256fc4] to-[#256fc4] dark:from-[rgb(30,30,30)] dark:to-[rgb(30,30,30)]'  ></span>
-                    <span className='h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#256fc4] to-[#256fc4] dark:from-[rgb(30,30,30)] dark:to-[rgb(30,30,30)]'></span>
-                    <span className='absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#256fc4] to-[#256fc4] dark:from-[rgb(30,30,30)] dark:to-[rgb(30,30,30)]'></span>
-                    <span className='absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#256fc4] from-[#256fc4] dark:from-[rgb(30,30,30)] dark:to-[rgb(30,30,30)]'></span>
-                    <span className='relative'>Transcribe Audio</span>
-                </button>
                 <div className="mt-[50px]">
-                    <label className="block mb-2 text-[15px] font-medium text-gray-900 dark:text-white">Transcription</label>
-                    <div className="mt-[10px] w-full h-[230px] bg-slate-200 dark:bg-gray-500 flex items-center justify-center">
-                        No transcription results yet.
-                    </div> 
+                    <label className="block mb-2 text-[15px] font-medium text-gray-900 dark:text-white">Input text:</label>
+                    <div className="mt-[10px] w-full h-[230px] bg-slate-200 dark:bg-gray-500 p-[20px]">
+                        Input text to perform semantic similarity search...
+                    </div>
                 </div>
             </div>
         </main>
