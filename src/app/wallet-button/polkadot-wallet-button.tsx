@@ -6,7 +6,7 @@ import polkadotIcon from '../../assets/polkadot-new-dot-logo.svg';
 import Image from "next/image";
 
 function PolkadotWalletButton() {
-    const [extensionAvailable, setExtensionAvailable] = useState();
+    const [extensionAvailable, setExtensionAvailable] = useState(true);
     const [isAddress, setIsAddress] = useState(false);
     const [address, setAddress] = useState('');
     
