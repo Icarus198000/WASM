@@ -32,7 +32,7 @@ const ModuleItem = ({ id, cardData }: ModuleItemPropsType) => {
             <Modal open={openModal} onCancel={() => setOpenModal(false)} width={1240} style={{height:"700px"}} className="h-[700px]" footer={null} >
                 <iframe className="w-[500px] h-[500px] p-[20px]" style={{width:"100%", height:"650px"}} src={`https://${subdomain}.hf.space`} />
             </Modal>
-            <Card className="p-[20px] cursor-pointer dark:bg-[rgb(18,18,18)]">
+            <Card className="p-[20px] cursor-pointer dark:bg-[rgb(18,18,18)] rounded-3xl">
                 <div onClick={() => onClickItemHandle()} style={{width:"200px", height:"100px"}}>
                     <p className="text-[#0e0e0e] text-[18px] dark:text-white text-center break-words w-[260px] h-[36px] mt-[40px]">
                         {

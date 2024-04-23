@@ -51,8 +51,8 @@ function PolkadotWalletButton() {
                     width={'500px'}
                     footer={null}
                 >
-                    <div className="p-8 flex justify-center items-center flex-col gap-4 rounded-3xl">
-                        <p className="mt-[0px] ">Connect Successfully.<br/>address: {address}</p>
+                    <div className="p-8 flex justify-center items-center flex-col gap-4 rounded-3xl bg-[#fff] dark:bg-[rgb(27,27,27)]">
+                        <p className="mt-[0px] dark:text-white">Connected Successfully.<br/>address: {address}</p>
                     </div>
                 </Modal>
             )}
