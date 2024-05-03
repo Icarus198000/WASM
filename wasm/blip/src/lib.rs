@@ -8,7 +8,6 @@ extern "C" {
     #[wasm_bindgen(js_namespace = console)]
     pub fn log(s: &str);
 }
-
 #[macro_export]
 macro_rules! console_log {
     // Note that this is using the `log` function imported above during

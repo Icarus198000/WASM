@@ -27,6 +27,7 @@ export default function BlipModelPage() {
                 <div className="mt-[50px]">
                     <label className="block mb-2 text-[20px] font-medium text-gray-900 dark:text-white">Examples</label>
                     <div className="flex justify-start items-center gap-[50px] ml-[100px]">
+                        
                         <Image
                             src="/storage.png"
                             alt="commune Logo"

@@ -8,7 +8,6 @@ pub struct TokenOutputStream {
     prev_index: usize,
     current_index: usize,
 }
-
 impl TokenOutputStream {
     pub fn new(tokenizer: tokenizers::Tokenizer) -> Self {
         Self {

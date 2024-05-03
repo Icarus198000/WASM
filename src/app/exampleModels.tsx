@@ -13,6 +13,7 @@ export default function ExampleModels() {
                     target=""
                     rel="noopener noreferrer"
                 >
+
                     <h2 className={`mb-3 text-2xl font-semibold`}>
                         Whisper{" "}
                         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
@@ -71,7 +72,7 @@ export default function ExampleModels() {
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-                        Llama2.c is Andrey Karpathy's C implementation of the Llama 2 LLM model in C.
+                        Llama2.c is Andrey Karpathy's C implementation
                     </p>
                 </a>
             </div>

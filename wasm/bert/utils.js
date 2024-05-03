@@ -29,7 +29,6 @@ export async function getEmbeddings(
     worker.addEventListener("message", messageHandler);
   });
 }
-
 const MODELS = {
   intfloat_e5_small_v2: {
     base_url: "https://huggingface.co/intfloat/e5-small-v2/resolve/main/",
